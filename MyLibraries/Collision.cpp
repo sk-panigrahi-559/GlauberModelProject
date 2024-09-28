@@ -31,7 +31,7 @@ int Collision::nucleons_are_colliding(Nucleon nu1, Nucleon nu2) {
   float y1 = nu1.GetY();
   float y2 = nu2.GetY();
   float distance = sqrt(pow(x2-x1, 2) + pow(y2-y1, 2));
-  cout << distance << " ";
+  // cout << distance << " ";
   if (distance < colliding_distance) {
     return 1;
   }
@@ -40,7 +40,6 @@ int Collision::nucleons_are_colliding(Nucleon nu1, Nucleon nu2) {
 
 // calculate Npart and Ncoll
 void Collision::ComputeValues(Nucleus N1, Nucleus N2) {
-  vector<int> values;
   int Np = 0;
   int Nc = 0;
   vector<Nucleon> Nucleons1 = N1.GetNucleons();
@@ -49,12 +48,14 @@ void Collision::ComputeValues(Nucleus N1, Nucleus N2) {
     for (int j = 0; j < max_nucleon_number; j++) {
       //cout << nucleons_are_colliding(Nucleons1[i], Nucleons2[j]) << "";
       if (nucleons_are_colliding(Nucleons1[i], Nucleons2[j])) {
-        Nc++;
         //cout << Nucleons2[j].IsMarked() << "\n";
+        
+        cout << "Collided\n";
         if (!Nucleons2[j].IsMarked()) {
           Np++;
           Nucleons2[j].Mark();
         }
+        Nc++;
       }
     }
     //cout << "\n\n\n";

@@ -13,6 +13,9 @@ int main(int argc, char *argv[]) {
   cout << "Colliding Distance : " << colliding_distance << "\n";
   cout << "Au-Au Collision\n";
   cout << "Sigma : " << sigma << "\n";
+  cout << "Colliding Distance : " << colliding_distance << "\n";
+  cout << "::::::::::::::::::::::::::::::::::\n";
+
   for (int i = 0; i < N_events; i++) {
     Nucleus N1("Au");
     cout << "COM1 : " << N1.GetCOM()[0] <<","<< N1.GetCOM()[1] << "\n";
