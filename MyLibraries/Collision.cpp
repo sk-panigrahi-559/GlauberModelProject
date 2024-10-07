@@ -30,7 +30,7 @@ int Collision::nucleons_are_colliding(Nucleon nu1, Nucleon nu2) {
   float x2 = nu2.GetX();
   float y1 = nu1.GetY();
   float y2 = nu2.GetY();
-  float distance = sqrt(pow(x2-x1, 2) + pow(y2-y1, 2));
+  float distance = x2-x1;
   // cout << distance << " ";
   if (distance < colliding_distance) {
     return 1;
@@ -50,7 +50,7 @@ void Collision::ComputeValues(Nucleus N1, Nucleus N2) {
       if (nucleons_are_colliding(Nucleons1[i], Nucleons2[j])) {
         //cout << Nucleons2[j].IsMarked() << "\n";
         
-        cout << "Collided\n";
+        //cout << "Collided\n";
         if (!Nucleons2[j].IsMarked()) {
           Np++;
           Nucleons2[j].Mark();

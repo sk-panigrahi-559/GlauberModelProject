@@ -9,7 +9,7 @@ int rd_generate_random_integer(int, int);
 int rand_lib_random_integer(int, int);
 
 // Generates a random float number
-float rd_generate_random_float(int, int);
+float rd_generate_random_float(float, float);
 
 // Calculates volume of sphere
 float volume_sphere(float);
@@ -23,5 +23,3 @@ vector<float> spherical_to_cartesian(float, float, float);
 // wood saxon distribution
 float wood_saxon_distribution_probability_funtion(float x);
 
-// round off upto 4 decimal places max
-float roundoff4(float x);

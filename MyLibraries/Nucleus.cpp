@@ -39,18 +39,24 @@ void Nucleus::WoodSaxonDistribution() {
   float r_h = R + 3*a;
   for (int i =0; i < max_nucleon_number; i++) {
     vector<float> coord;
-    float r = rd_generate_random_float(r_l, r_h);
-    float tr = rd_generate_random_float(0, 1);
-    float rho = (1 + w * pow(r/R, 2)) / (pow(M_E, ((r - R) / a)) + 1);
-    if (tr < ((r*r)/ (r_h*r_h))*rho ) {
-      coord.push_back(r);
+    while (1) {
+      float r = rd_generate_random_float(r_l, r_h);
+      float tr = rd_generate_random_float(0.0, 1.0);
+      float rho = (1 + w * pow(r/R, 2)) / (pow(M_E, ((r - R) / a)) + 1);
+      if (tr < ((r*r) / (r_h*r_h))*rho ) {
+        coord.push_back(r);
+        break;
+      }
     }
-    float theta = rd_generate_random_float(0, M_PI);
-    float t_theta = rd_generate_random_float(0, 1);
-    if (t_theta < sin(theta)) {
-      coord.push_back(theta);
+    while (1) {
+      float theta = rd_generate_random_float(0.0, M_PI);
+      float t_theta = rd_generate_random_float(0.0, 1.0);
+      if (t_theta < sin(theta)) {
+        coord.push_back(theta);
+        break;
+      }
     }
-    float phi = rd_generate_random_float(0, 2*M_PI);
+    float phi = rd_generate_random_float(0.0, 2*M_PI);
     coord.push_back(phi);
     // setting the cartesian coordinates
     //float x_, y_; // x and y coordinates of the nucleon
@@ -75,8 +81,8 @@ vector<float> Nucleus::Nucleus::GetCOM() {
     y_com += nu.GetY();
     i++;
   }
-  x_com = roundoff4(x_com / i);
-  y_com = roundoff4(y_com / i);
+  x_com = x_com / i;
+  y_com = y_com / i;
   COM.push_back(x_com);
   COM.push_back(y_com);
   return COM;

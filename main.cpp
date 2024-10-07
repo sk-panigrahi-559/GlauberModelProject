@@ -1,5 +1,5 @@
 #include "MyLibraries/Collision.h"
-#include "MyLibraries/Nucleon.h"
+//#include "MyLibraries/Nucleon.h"
 #include "MyLibraries/Nucleus.h"
 #include "MyLibraries/mathematicalfunctions.h"
 #include <iostream>
@@ -18,10 +18,10 @@ int main(int argc, char *argv[]) {
 
   for (int i = 0; i < N_events; i++) {
     Nucleus N1("Au");
-    cout << "COM1 : " << N1.GetCOM()[0] <<","<< N1.GetCOM()[1] << "\n";
+    //cout << "COM1 : " << N1.GetCOM()[0] <<","<< N1.GetCOM()[1] << "\n";
     Nucleus N2("Au");
-    cout << "COM2 : " << N2.GetCOM()[0] <<","<< N2.GetCOM()[1] << "\n";
-    float impactparam = rd_generate_random_float(0, 16.0);
+    //cout << "COM2 : " << N2.GetCOM()[0] <<","<< N2.GetCOM()[1] << "\n";
+    float impactparam = rd_generate_random_float(0.0, 16.0);
 
 //    float t_impactpram = rd_generate_random_float(0, 1);
     N2.ShiftCOM_Au(0.0, impactparam);
@@ -32,10 +32,15 @@ int main(int argc, char *argv[]) {
     }
     */
     Collision Event(N1, N2);
-    cout << "COM2 : " << N2.GetCOM()[0] <<","<< N2.GetCOM()[1] << "\n";
+    //cout << "COM2 : " << N2.GetCOM()[0] <<","<< N2.GetCOM()[1] << "\n";
     cout << "Event : " << i + 1 << "; b = " << impactparam << 
       "; Npart = " << Event.GetNpart() << "; Ncoll = " << Event.GetNcoll() << "\n";
+/*
+  for (int i = 0; i<max_nucleon_number; i++) {
+    cout << N1.GetNucleons()[i].GetX() << "," << N1.GetNucleons()[i].GetY() << ";" << N2.GetNucleons()[i].GetX() << "," << N2.GetNucleons()[i].GetY() << ";" << N2.GetNucleons()[i].GetX() - N1.GetNucleons()[i].GetX() <<"\n";
+  }*/
   }
+
 
   return 0;
 }

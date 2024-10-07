@@ -1,8 +1,8 @@
 #include <cmath>
 #include <random>
 #include <vector>
-#include "Nucleus.h"
-#include "Nucleon.h"
+//#include "Nucleus.h"
+//#include "Nucleon.h"
 #include "Collision.h"
 
 using namespace std;
@@ -21,7 +21,7 @@ int rand_lib_random_integer(int lowerbound, int upperbound) {
 }
 
 // Generates a random float number
-float rd_generate_random_float(int lowerbound, int upperbound) {
+float rd_generate_random_float(float lowerbound, float upperbound) {
   std::random_device rd;
   std::default_random_engine generator(rd());
   std::uniform_real_distribution<float> distribution(lowerbound, upperbound);
@@ -54,8 +54,3 @@ float wood_saxon_distribution_probability_funtion(float x){
   r = 1/(pow(M_E, ((x - R) / a))+ 1);
   return r;
 }
-
-float roundoff4(float x){
-  return roundf((x*10000)/10000);
-}
-

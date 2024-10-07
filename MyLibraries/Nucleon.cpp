@@ -15,10 +15,10 @@ Nucleon::Nucleon(string nu_type, vector<float> coord) {
   theta = coord[1];
   phi = coord[2];
   count_marker = 0;
-  vector<float> cart_coord = spherical_to_cartesian(r, theta, phi);
-  x = roundoff4(cart_coord[0]);
-  y = roundoff4(cart_coord[1]);
-  z = roundoff4(cart_coord[2]);
+  //vector<float> cart_coord = spherical_to_cartesian(r, theta, phi);
+  x = r * sin(theta) * cos(phi);
+  y = r * sin(theta) * sin(phi);
+  z = r * cos(theta);
 }
 // Data Accessing methods
 string Nucleon::GetType() { return nucleon_type; }
